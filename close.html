@@ -1,112 +1,153 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
-  <title>LIFF App</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <title>ปิดร้านวันนี้</title>
+  <!-- ใช้เวอร์ชันที่ Flex แสดงผลแน่นอน 100% -->
+  <script src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script>
 </head>
-<body>
-  <script src="https://static.line-scdn.net/liff/edge/versions/2.5.0/sdk.js"></script>
+<body style="margin:0; padding:20px; background:#f0f0f0; font-family: sans-serif;">
+  <div style="text-align:center; padding:20px; background:white; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.1);">
+    <h2>กำลังแชร์รายการปิดร้าน...</h2>
+    <p>กรุณารอสักครู่</p>
+  </div>
+
   <script>
-      async function main() {
-      await liff.init({ liffId: "2008527446-EAkbo6rd" })
-      await liff.shareTargetPicker([
-       {
-          type: "flex",
-          altText: "Flex message From Share Target Picker",
-          contents:{
-  "type": "bubble",
-  "header": {
-    "type": "box",
-    "layout": "vertical",
-    "paddingAll": "16px",
-    "backgroundColor": "#BBDEFB",
-    "contents": [
-      {
-        "type": "text",
-        "text": "ปิดร้านแล้ววันนี้ 🙏 ขอบคุณทีมทุกคนที่ช่วยกันดูแลร้านทั้งวัน ร้านจะน่ารักได้ก็เพราะมีทีมที่ใส่ใจแบบนี้ครับ 💚",
-        "weight": "bold",
-        "size": "md",
-        "align": "center",
-        "wrap": true
-      }
-    ]
-  },
-  "body": {
-    "type": "box",
-    "layout": "vertical",
-    "spacing": "md",
-    "contents": [
-      {
-        "type": "box",
-        "layout": "vertical",
-        "paddingAll": "12px",
-        "backgroundColor": "#E3F2FD",
-        "cornerRadius": "12px",
-        "contents": [
+    async function shareClosingChecklist() {
+      try {
+        // 1. Init LIFF
+        await liff.init({ liffId: "2008527446-EAkbo6rd" });
+
+        // 2. ส่ง Flex Message ผ่าน Share Target Picker
+        await liff.shareTargetPicker([
           {
-            "type": "text",
-            "text": "สิ่งที่ต้องทำก่อนปิดร้าน",
-            "weight": "bold",
-            "wrap": true
-          },
-          {
-            "type": "text",
-            "text": "• เก็บทำความสะอาดโต๊ะ/เก้าอี้/เคาน์เตอร์\n• ล้างอุปกรณ์บาร์และครัว\n• เก็บสต็อกวัตถุดิบเข้าที่",
-            "size": "sm",
-            "margin": "sm",
-            "wrap": true
+            type: "flex",
+            altText: "ปิดร้านแล้ววันนี้ 🙏 ขอบคุณทีมทุกคนที่ช่วยกันดูแลร้านทั้งวัน 💚",
+            view: "full",   // สำคัญมาก! ทำให้ Flex แสดงผลแน่นอนในเวอร์ชันใหม่
+            contents: {
+              "type": "bubble",
+              "header": {
+                "type": "box",
+                "layout": "vertical",
+                "paddingAll": "16px",
+                "backgroundColor": "#BBDEFB",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "ปิดร้านแล้ววันนี้ 🙏\nขอบคุณทีมทุกคนที่ช่วยกันดูแลร้านทั้งวัน\nร้านจะน่ารักได้ก็เพราะมีทีมที่ใส่ใจแบบนี้ครับ 💚",
+                    "weight": "bold",
+                    "size": "md",
+                    "align": "center",
+                    "color": "#000000",
+                    "wrap": true
+                  }
+                ]
+              },
+              "body": {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "md",
+                "paddingAll": "16px",
+                "contents": [
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "paddingAll": "14px",
+                    "backgroundColor": "#E3F2FD",
+                    "cornerRadius": "12px",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "สิ่งที่ต้องทำก่อนปิดร้าน",
+                        "weight": "bold",
+                        "size": "md",
+                        "color": "#1976D2"
+                      },
+                      {
+                        "type": "text",
+                        "text": "• เก็บทำความสะอาดโต๊ะ/เก้าอี้/เคาน์เตอร์\n• ล้างอุปกรณ์บาร์และครัว\n• เก็บสต็อกวัตถุดิบเข้าที่",
+                        "size": "sm",
+                        "color": "#555555",
+                        "wrap": true,
+                        "margin": "md"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "paddingAll": "14px",
+                    "backgroundColor": "#E8EAF6",
+                    "cornerRadius": "12px",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "ตรวจเช็กสุดท้าย",
+                        "weight": "bold",
+                        "size": "md",
+                        "color": "#1976D2"
+                      },
+                      {
+                        "type": "text",
+                        "text": "• ปิดระบบไฟ/แอร์\n• ทิ้งขยะ + แยกรีไซเคิล\n• เช็กประตู/กล้องวงจรปิด",
+                        "size": "sm",
+                        "color": "#555555",
+                        "wrap": true,
+                        "margin": "md"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "footer": {
+                "type": "box",
+                "layout": "vertical",
+                "paddingAll": "12px",
+                "backgroundColor": "#FFFFFF",
+                "contents": [
+                  {
+                    "type": "button",
+                    "style": "primary",
+                    "color": "#1E88E5",
+                    "height": "sm",
+                    "action": {
+                      "type": "postback",
+                      "label": "ปิดงานเรียบร้อย ✅",
+                      "data": "action=ack&list=evening",
+                      "displayText": "ปิดงานเรียบร้อยแล้วครับ/ค่ะ"
+                    }
+                  }
+                ]
+              },
+              "styles": {
+                "footer": {
+                  "separator": true
+                }
+              }
+            }
           }
-        ]
-      },
-      {
-        "type": "box",
-        "layout": "vertical",
-        "paddingAll": "12px",
-        "backgroundColor": "#E8EAF6",
-        "cornerRadius": "12px",
-        "contents": [
-          {
-            "type": "text",
-            "text": "ตรวจเช็กสุดท้าย",
-            "weight": "bold",
-            "wrap": true
-          },
-          {
-            "type": "text",
-            "text": "• ปิดระบบไฟ/แอร์\n• ทิ้งขยะ + แยกรีไซเคิล\n• เช็กประตู/กล้องวงจรปิด",
-            "size": "sm",
-            "margin": "sm",
-            "wrap": true
-          }
-        ]
+        ]);
+
+        // สำเร็จ → ปิดหน้าต่าง
+        liff.closeWindow();
+
+      } catch (error) {
+        document.body.innerHTML = `
+          <div style="text-align:center; padding:30px; background:white; border-radius:12px;">
+            <h3 style="color:#e53935;">เกิดข้อผิดพลาด</h3>
+            <p>${error.message || error}</p>
+            <button onclick="location.reload()" style="padding:10px 20px; background:#1E88E5; color:white; border:none; border-radius:8px; margin-top:10px;">
+              ลองใหม่
+            </button>
+          </div>
+        `;
+        console.error("LIFF Error:", error);
       }
-    ]
-  },
-  "footer": {
-    "type": "box",
-    "layout": "vertical",
-    "spacing": "sm",
-    "contents": [
-      {
-        "type": "button",
-        "style": "primary",
-        "color": "#1E88E5",
-        "action": {
-          "type": "postback",
-          "label": "ปิดงานเรียบร้อย ✅",
-          "data": "action=ack&list=evening",
-          "displayText": "ปิดงานเรียบร้อยแล้วครับ/ค่ะ"
-        }
-      }
-    ]
-  }
-}
-        }  
-      ])
-      liff.closeWindow()
-        }
-    main()
+    }
+
+    // รันอัตโนมัติเมื่อโหลดหน้าเสร็จ
+    shareClosingChecklist();
   </script>
 </body>
 </html>
