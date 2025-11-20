@@ -16,65 +16,28 @@
           altText: "Flex message From Share Target Picker",
           contents:{
   "type": "bubble",
+  "hero": {
+    "type": "image",
+    "url": "https://lh5.googleusercontent.com/d/1IBhJ-av2Th-SFbrGMwWl2Hzv9_6r4cH7",
+    "size": "full",
+    "aspectRatio": "1:1",
+    "aspectMode": "cover",
+    "action": {
+      "type": "uri",
+      "uri": "https://www.facebook.com/beyourowncafe"
+    }
+  },
   "body": {
     "type": "box",
     "layout": "vertical",
-    "spacing": "md",
     "contents": [
       {
-        "type": "box",
-        "layout": "vertical",
-        "paddingAll": "14px",
-        "backgroundColor": "#E8F5E9",
-        "cornerRadius": "12px",
-        "contents": [
-          {
-            "type": "text",
-            "text": "เช็กลิสต์ก่อนเปิดร้านเช้านี้",
-            "weight": "bold",
-            "size": "lg",
-            "align": "center"
-          }
-        ]
-      },
-      {
         "type": "text",
-        "text": "☕ บาร์กาแฟ",
+        "text": "Be Your Own Coffee & Bar",
         "weight": "bold",
-        "margin": "md"
-      },
-      {
-        "type": "text",
-        "text": "• เปิดเครื่อง / เติมน้ำ-น้ำแข็ง\n• เช็ดเคาน์เตอร์ / หัวชง\n• Test กาแฟแก้วแรก",
-        "size": "sm",
-        "color": "#111111",
-        "wrap": true
-      },
-      {
-        "type": "text",
-        "text": "🍳 ครัว",
-        "weight": "bold",
-        "margin": "md"
-      },
-      {
-        "type": "text",
-        "text": "• เช็กสต็อก (ข้าว/เนื้อ/ผัก/ซอส)\n• ตรวจคุณภาพ สด/สะอาด\n• เตรียม portion พร้อมใช้",
-        "size": "sm",
-        "color": "#111111",
-        "wrap": true
-      },
-      {
-        "type": "text",
-        "text": "🧹 ภายนอก",
-        "weight": "bold",
-        "margin": "md"
-      },
-      {
-        "type": "text",
-        "text": "• จัดโต๊ะเก้าอี้ทางเข้า\n• กวาด/ถูพื้น\n• เช็กห้องน้ำ/ถังขยะ",
-        "size": "sm",
-        "color": "#111111",
-        "wrap": true
+        "size": "lg",
+        "wrap": true,
+        "align": "center"
       }
     ]
   },
@@ -86,15 +49,32 @@
       {
         "type": "button",
         "style": "primary",
-        "color": "#1DB446",
+        "height": "sm",
         "action": {
-          "type": "postback",
-          "label": "รับงานเรียบร้อย ✅",
-          "data": "action=ack&list=morning",
-          "displayText": "รับงานเรียบร้อยแล้วครับ/ค่ะ"
+          "type": "uri",
+          "label": "พนักงานแนะนำเมนู AI (beta)",
+          "uri": "https://script.google.com/macros/s/AKfycbwmyGCtWkbiMj1B72tvvWvWGFUpR4rJBZEC_oeMO2fdigfzabkCY3sqks14qsReolEs/exec?openExternalBrowser=1"
         }
+      },
+      {
+        "type": "button",
+        "style": "primary",
+        "height": "sm",
+        "action": {
+          "type": "uri",
+          "label": "Facebook",
+          "uri": "https://www.facebook.com/beyourowncafe"
+        },
+        "color": "#2D4BA1"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [],
+        "margin": "sm"
       }
-    ]
+    ],
+    "flex": 0
   }
 }
         }  
